@@ -20,7 +20,15 @@ allergyRouter.get('/:id', function(req, res) {
 		});
 });
 
-allergyRouter.post('/', function(req, res) {
+allergyRouter.get('/users/:id/allergies', function(req, res) {
+	Allergy
+		.findAll()
+		.then(function(allergy) {
+			res.send(allergy);
+		});
+});
+
+allergyRouter.post('/users/:id/allergies', function(req, res) {
 	Allergy
 		.create(req.body)
 		.then(function(allergy) {

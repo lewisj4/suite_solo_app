@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
 				notEmpty: { msg: 'Diagnosis cannot be blank' }
 			}
 		},
-		diagnosis_code: {
+		icd_code_id: {
 			type: DataTypes.INTEGER,
 		}	
 	}, {
@@ -21,6 +21,9 @@ module.exports = function(sequelize, DataTypes) {
 				diagnoses.belongsToMany(models.users, { 
 					through: 'users_diagnoses',
 					foreignKey: 'diagnosis_id' 
+				});
+				diagnoses.belongsTo(models.icdcodes, {
+					foreignKey: 'icd_code_id'
 				});
 			}
 		}

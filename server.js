@@ -5,15 +5,16 @@ var path                 =require('path');
 var logger               =require('morgan');
 var session              =require('express-session');
 var bcrypt               =require('bcrypt');
+var models               =require('./models');
 var allergyRoutes        =require('./routers/allergy_routes.js');
 var diagnosisRoutes      =require('./routers/diagnosis_routes.js');
 var medicationRoutes     =require('./routers/medication_routes.js');
 var surgeryRoutes        =require('./routers/surgery_routes.js');
 var userRoutes           =require('./routers/user_routes.js');
-var immunizationRoutes   =require('./routers/immunization_routes.js');
-    
+var immunizationRoutes   =require('./routers/immunization_routes.js');   
 
 var app = express(); 
+
 
 app.use( logger('dev') );
 app.use( bodyParser.urlencoded({ extended: false }) );
@@ -26,6 +27,7 @@ app.use( session({
 
 app.use( express.static( path.join( application_root, 'public' )))
 
+//============== Routes =================
 app.use('/allergies', allergyRoutes);
 app.use('/immunizations', immunizationRoutes);
 app.use('/diagnoses', diagnosisRoutes);

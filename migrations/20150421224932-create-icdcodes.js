@@ -2,11 +2,17 @@
 
 module.exports = {
   up: function(migration, DataTypes, done) {
-    migration.createTable("users_surgeries", {
-    	user_id: {
+    migration.createTable("icdcodes", {
+    	id: {
+    		allowNull: false,
+    		autoIncrement: true,
+    		primaryKey: true,
     		type: DataTypes.INTEGER
     	},
-    	surgery_id: {
+    	icd_code: {
+    		type: DataTypes.STRING
+    	},
+    	diagnosis_id: {
     		type: DataTypes.INTEGER
     	},
       created_at: {
@@ -21,6 +27,6 @@ module.exports = {
   },
 
   down: function(migration, DataTypes, done) {
-    migration.dropTable("users_surgeries").done(done);
+   migrate.dropTable("icdcodes").done(done);
   }
 };

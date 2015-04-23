@@ -13,9 +13,9 @@ var users = [
 		password_digest: 'poodles',
 		first_name: 'Frank',
 		last_name: 'Wilson',
-		birthdate: 9/15/75,
+		birthdate: 9-15-75,
 		sex: 'male',
-		ethinicity: 'Latino',
+		ethnicity: 'Latino',
 		street: '322 5th Ave',
 		city: 'New York',
 		state: 'New York',
@@ -30,9 +30,9 @@ var users = [
 		password_digest: 'kittens',
 		first_name: 'Betty',
 		last_name: 'Brown',
-		birthdate: 3/30/88,
+		birthdate: 3-30-88,
 		sex: 'female',
-		ethinicity: 'Caucasian',
+		ethnicity: 'Caucasian',
 		street: '218 Parkridge Ave',
 		city: 'Chapel Hill',
 		state: 'North Carolina',
@@ -47,9 +47,9 @@ var users = [
 		password_digest: 'ballerlife',
 		first_name: 'Joey',
 		last_name: 'Smith',
-		birthdate: 5/2/82,
+		birthdate: 5-2-82,
 		sex: 'male',
-		ethinicity: 'Asian',
+		ethnicity: 'Asian',
 		street: '415 Spruce St',
 		city: 'Chicago',
 		state: 'Illinois',
@@ -64,9 +64,9 @@ var users = [
 		password_digest: 'heresjohnny',
 		first_name: 'Rob',
 		last_name: 'Johnson',
-		birthdate: 8/24/91,
+		birthdate: 8-24-91,
 		sex: 'male',
-		ethinicity: 'Caucasian',
+		ethnicity: 'Caucasian',
 		street: '516 Taylor Ave',
 		city: 'San Francisco',
 		state: 'California',
@@ -75,7 +75,7 @@ var users = [
 		primary_contact_first_name: 'Sue',
 		primary_contact_last_name: 'Johnson',
 		primary_contact_phone: '415-212-8550',
-	}
+	},
 ]	
 		
 var	surgeries = [
@@ -96,33 +96,21 @@ var	surgeries = [
 var medications = [
 	{
 		medication: 'Uroxatra',
-		dosage: '1 pill',
-		frequency: 'Every 6 hours'
 	},
 	{
 		medication: 'Myalept',
-		dosage: '15 mg',
-		frequency: 'Twice-A-Day'
 	},
 	{
 		medication: 'Purinethol',
-		dosage: '5 mg',
-		frequency: 'Twice-A-Day'
 	},
 	{
 		medication: 'Oravig',
-		dosage: '15 mg',
-		frequency: 'Once-A-Day'
 	},
 	{
 		medication: 'Aclovate',
-		dosage: '15 mg',
-		frequency: 'Twice-A-Day'
   },
   {
 		medication: 'Hiprex',
-		dosage: '2 mg',
-		frequency: 'Once-A-Day'
   },
 ]
 var diagnoses = [
@@ -240,4 +228,6 @@ var seedDatabase = function() {
 };
 
 seedDatabase();
+
+
 

@@ -10,20 +10,11 @@ module.exports = {
  				type: DataTypes.INTEGER
  			},
  			medication: {
- 				type: DataTypes.STRING
+ 				type: DataTypes.TEXT
  			},
- 			dosage: {
- 				type: DataTypes.STRING
- 			},
- 			frequency: {
- 				type: DataTypes.STRING
- 			},
-      medication_code: {
+      ndc_code_id: {
         type: DataTypes.INTEGER
       },
- 			user_id: {
- 				type: DataTypes.INTEGER
- 			},
  			created_at: {
         allowNull: false,
         type: DataTypes.DATE

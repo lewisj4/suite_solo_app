@@ -1,0 +1,13 @@
+#login-username,
+#login-password,
+#login-button {
+	position: relative;
+	top: 20px;
+}
+
+#create-username,
+#create-password,
+#create-button {
+	position: relative;
+	top: 50px;
+}

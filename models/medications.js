@@ -3,22 +3,10 @@
 module.exports = function(sequelize, DataTypes) {
 	var medications = sequelize.define("medications", {
 		medication: {
-			type: DataTypes.STRING,
-		},
-		
-		dosage: {
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 		},
 
-		frequency: {
-			type: DataTypes.STRING,
-		},
-
-		medication_code: {
-			type: DataTypes.INTEGER,
-		},
-
-		user_id: {
+		ndc_code_id: {
 			type: DataTypes.INTEGER,
 		}
 	}, {
@@ -27,7 +15,13 @@ module.exports = function(sequelize, DataTypes) {
 
 		classMethods: {
 			associate: function(models) {
-				medications.belongsTo(models.users, { foreignKey: 'user_id' });
+				medications.belongsToMany(models.users, { 
+					through: 'users_medications',
+					foreignKey: 'medication_id' 
+				});
+				medications.belongsTo(models.ndccodes, {
+					foreignKey: 'ndc_code_id'
+				});
 			}
 		}
 	});

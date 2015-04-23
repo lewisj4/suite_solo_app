@@ -12,7 +12,7 @@ module.exports = {
   		name: {
   			type: DataTypes.TEXT
   		},
-      diagnosis_code: {
+      icd_code_id: {
         type: DataTypes.INTEGER
       },
       created_at: {

@@ -33,6 +33,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		birthdate: {
 			type: DataTypes.DATE,
+			allowNull: false,
 			validate: {
 				isDate: {msg: 'Must enter a valid Date'},
 				notEmpty: {msg: 'Birthdate cannot be blank'}
@@ -40,12 +41,14 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		sex: {
 			type: DataTypes.STRING,
+			allowNull: false,
 			validate: {
 				notEmpty: {msg: 'Must enter a gender'}
 			}
 		},
 		ethnicity: {
 			type: DataTypes.STRING,
+			allowNull: false,
 			validate: {
 				notEmpty: {msg: 'Must enter ethnicity'}
 			}
@@ -97,7 +100,8 @@ module.exports = function(sequelize, DataTypes) {
 					onDelete: 'cascade',
 					hooks: true 
 				});
-				users.hasMany(models.medications, { 
+				users.belongsToMany(models.medications, {
+					through: 'users_medications', 
 					foreignKey: 'user_id',
 					onDelete: 'cascade',
 					hooks: true 
