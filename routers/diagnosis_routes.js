@@ -20,7 +20,7 @@ diagnosisRouter.get('/:id', function(req, res) {
 		});
 });
 
-diagnosisRouter.post('/', function(req, res) {
+diagnosisRouter.post('/users/:id/diagnoses', function(req, res) {
 	Diagnosis
 		.create(req.body)
 		.then(function(Diagnosis) {

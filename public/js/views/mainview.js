@@ -4,11 +4,9 @@ App.Views.MainView = Backbone.View.extend({
 	
 	initialize: function() {
 		console.log('Main View has been created');
-
+		this.template = Handlebars.compile($('#login-template').html());
 		App.homepage = new App.Views.HomepageView();
-		//debugger;
 		App.userForm = new App.Forms.UserForm();
-		//debugger;
 	},
 
 	events: {
@@ -16,11 +14,7 @@ App.Views.MainView = Backbone.View.extend({
 	},
 
 	showSignUp: function() {
-		App.userForm.show();
-	},
-
-	executeLogin: function() {
-
+		App.userForm.commit();
 	}
 	
 });

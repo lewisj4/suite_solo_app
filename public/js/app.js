@@ -10,7 +10,7 @@ $(function() {
 	console.log('Loaded, Bro.');
 
 	//============== Models ======================
-	App.user = new App.Models.User();
+
 	//============== Collections ===================
 	App.allergies = new App.Collections.Allergies();
 	App.diagnoses = new App.Collections.Diagnoses();
@@ -19,7 +19,7 @@ $(function() {
 	App.surgeries = new App.Collections.Surgeries();
 
 	//================= Forms ==================
-	App.userForm = new App.Forms.UserForm({ App.user});
+	App.userForm = new App.Forms.UserForm({ model: new App.Models.User()});
 
 	//=================== Views ================
 	App.mainView = new App.Views.MainView();

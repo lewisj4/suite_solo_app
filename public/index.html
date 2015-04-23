@@ -42,7 +42,7 @@
 </head>
 <body>
 	<div id="main-view">
-		<a href="#"><div id='logo-div'><h1 id="logo">iMedRecords</h1></div></a>
+		<div id='logo-div'><h1 id="logo">iMedRecords</h1></div>
 
 		<div id="homepage-view">
 		</div>
@@ -56,7 +56,7 @@
 
 	<template id="startup-template">
 		<div id="startup-form">
-			<button id="starter-login-button">Log In</button>
+			<button id="starter-login-button">Sign In</button>
 			<button id="starter-signup-button">Sign Up</button>
 		</div>
 	</template>		
@@ -77,10 +77,12 @@
 	</template>		
 
 	<template id="loggedin-template">
+		<div id='loggedin-form'>
 		<p>
 			Hello, {{username}}
 			<button id="logout-button">Logout</button>
 		</p>	
+	</div>
 	</template>
 	
 	<script id="user-form-template" type="text/html">

@@ -1,51 +1,9 @@
 var express             = require('express'),
+		bcrypt							= require('bcrypt'),
 		models              = require('../models'),
 		User                = models.users;
 
 var userRouter = express.Router();
-
-userRouter.get('/', function(req, res) {
-	User
-		.findAll()
-		.then(function(users) {
-			res.send(users);
-		});
-});
-
-userRouter.get('/:id', function(req, res) {
-	User
-		.findOne(req.params.id)
-		.then(function(user) {
-			res.send(user);
-		});
-});
-
-userRouter.post('/', function(req, res) {
-	User
-		.create(req.body)
-		.then(function(user) {
-			res.send(user);
-		}, function(err) {
-					var errors = err.errors.map(function(error) {
-						return error.path + ' - ' + error.message
-			 });
-			 res
-			 		.status(422)
-			 		.send(errors);		
-		});
-});
-
-userRouter.delete('/:id', function(req, res) {
-	User
-		.findOne(req.params.id)
-		.then(function(user) {
-			user
-				.destroy()
-				.then(function(user) {
-					res.send(user);
-				});
-		});
-});
 
 //============== User Auth ==============
 
@@ -98,5 +56,70 @@ userRouter.delete('/sessions', function(req, res) {
 	delete req.session.currentUser;
 	res.send('Successfully logged out.');
 });
+
+userRouter.get('/current_user', function(req, res) {
+	var userID = req.session.currentUser;
+
+	if (userID) {
+		User
+			.findOne(userID)
+			.then(function(user) {
+				res.send(user)
+			});
+	} else {
+		res.send(null);
+	}
+});	
+
+// =============== User Routes ==================	
+userRouter.get('/', function(req, res) {
+	User
+		.findAll()
+		.then(function(users) {
+			res.send(users);
+		});
+});
+
+userRouter.get('/:id', function(req, res) {
+	User
+		.findOne(req.params.id)
+		.then(function(user) {
+			res.send(user);
+		});
+});
+
+userRouter.post('/', function(req, res) {
+	bcrypt.hash(req.body.password, 10, function(err, hash) {	
+		User
+			.create({
+				username: req.body.username,
+				password_digest: hash
+			});
+	});
+});	
+// 		.then(function(user) {
+// 			res.send(user);
+// 		}, function(err) {
+// 					var errors = err.errors.map(function(error) {
+// 						return error.path + ' - ' + error.message
+// 			 });
+// 			 res
+// 			 		.status(422)
+// 			 		.send(errors);		
+// 		});
+// });
+
+userRouter.delete('/:id', function(req, res) {
+	User
+		.findOne(req.params.id)
+		.then(function(user) {
+			user
+				.destroy()
+				.then(function(user) {
+					res.send(user);
+				});
+		});
+});
+
 
 module.exports = userRouter

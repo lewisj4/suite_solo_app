@@ -20,28 +20,33 @@ allergyRouter.get('/:id', function(req, res) {
 		});
 });
 
+allergyRouter.get('/:id/users', function(req, res) {
+	Allergy
+})
+
 allergyRouter.get('/users/:id/allergies', function(req, res) {
 	Allergy
 		.findAll()
-		.then(function(allergy) {
-			res.send(allergy);
+		.then(function(allergies) {
+			res.send(allergies);
 		});
 });
 
 allergyRouter.post('/users/:id/allergies', function(req, res) {
-	Allergy
-		.create(req.body)
-		.then(function(allergy) {
-				res.send(allergy);
-		}, function(err) {
-						var errors = err.errors.map(function(error) {
-							return error.path + ' - ' + error.message;
-			});
-			res
-				.status(422)
-				.send(errors);
+	var userId = req.params.id;
+	var allergyParams = req.body;
+
+	User
+		.findOne(userId)
+		.then(function(user) {
+			Allergy
+				.create(allergyParams)
+				.then(function(newAllergy) {
+					user.addAllergy(newAllergy)
+					res.send(newAllergy);
+				});
 		});
-});
+});;
 
 allergyRouter.delete('/:id', function(req, res) {
 	Allergy
