@@ -20,7 +20,7 @@ var authenticate = function(req, res, next) {
 
 userRouter.post('/sessions', function(req, res) {
 	var loginUsername = req.body.username;
-	var loginPassword = req.body.username;
+	var loginPassword = req.body.password;
 
 	User
 		.findOne({
@@ -38,7 +38,7 @@ userRouter.post('/sessions', function(req, res) {
 						res.status(400);
 						res.send({
 							err: 400,
-							msg: 'Sorry, you are not allowed access'
+							msg: 'Sorry, bad password'
 						});
 					}
 				});
@@ -97,17 +97,32 @@ userRouter.post('/', function(req, res) {
 			});
 	});
 });	
-// 		.then(function(user) {
-// 			res.send(user);
-// 		}, function(err) {
-// 					var errors = err.errors.map(function(error) {
-// 						return error.path + ' - ' + error.message
-// 			 });
-// 			 res
-// 			 		.status(422)
-// 			 		.send(errors);		
-// 		});
-// });
+
+userRouter.post('/user-info', function(req, res) {
+	User
+		.create({
+			first_name: req.body.first_name,
+			last_name: req.body.last_name,
+			birthdate: req.body.birthdate,
+			sex: req.body.sex,
+			ethnicity: req.body.ethnicity,
+			street: req.body.street,
+			city: req.body.city,
+			state: req.body.state,
+			zipcode: req.body.zipcode,
+			phone: req.body.phone
+		})
+		.then(function(userInfo) {
+			res.send(userInfo)
+		}, function(err) {
+				var errors= err.errors.map(function(error) {
+					return error.path + ' - ' + error.message
+				});
+				res
+					.status(422)
+					.send(errors);
+		});
+});
 
 userRouter.delete('/:id', function(req, res) {
 	User

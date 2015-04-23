@@ -1,14 +1,16 @@
 App.Views.SignupView = Backbone.View.extend({
-
-	el: '#signup-view',
+	el: "signup-view",
 
 	initialize: function() {
 		console.log('Signup View has been created');
-		userFormTemplate = Handlebars.compile($('#user-form-template').html());
-		this.render();
 	},
+	
+	// executeSignUp: function() {
+	// 	var userInfo = App.userForm.commit();
+	// 	$.post('/users/user-info', {
+	// 		userI
+	// 	})
+	// }
 
-	render: function() {
-		this.$el.append(userFormTemplate);
-	}
 });
+

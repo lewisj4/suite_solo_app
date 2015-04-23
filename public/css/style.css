@@ -9,5 +9,22 @@
 #create-password,
 #create-button {
 	position: relative;
-	top: 50px;
+	top: 20px;
+}
+
+#footer {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	font-size: 12px;
+	height: 25px;
+}
+
+#submit-button {
+	position: fixed;
+	bottom: 25px;
+	left: 10px;
+	right: 0;
+	height: 0px;
 }
