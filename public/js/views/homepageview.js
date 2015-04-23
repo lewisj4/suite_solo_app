@@ -37,7 +37,7 @@ App.Views.HomepageView = Backbone.View.extend({
 			method: 'POST',
 			data: {
 				username: username,
-				password_digest: password
+				password: password
 			}	
 		}).done(function() {
 			$('#login-form').hide();

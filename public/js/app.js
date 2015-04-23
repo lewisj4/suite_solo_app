@@ -20,7 +20,9 @@ $(function() {
 
 	//================= Forms ==================
 	App.userForm = new App.Forms.UserForm({ model: new App.Models.User()});
+	//App.allergyForm = new App.Forms.AllergyForm({ model: new App.Models.Allergy()});
 
 	//=================== Views ================
 	App.mainView = new App.Views.MainView();
+	//App.signupView = new App.Views.SignupView();
 });

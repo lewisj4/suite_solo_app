@@ -9,7 +9,7 @@ App.Forms.UserForm = Backbone.Form.extend({
 
 		last_name: { validators: ['required'] },
 
-		birthdate: 'Date',
+		birthdate: 'Text',
 
 		sex: { type: 'Select', options: ['Male', 'Female'] },
 

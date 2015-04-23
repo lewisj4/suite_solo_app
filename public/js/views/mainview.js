@@ -12,20 +12,29 @@ App.Views.MainView = Backbone.View.extend({
 
 	events: {
 		'click #starter-signup-button' : 'showCreateUser',
-		'click #create-button' : 'showSignUp',
-		'click #submit-button' : 'executeSignUp'
+		'click #create-button' : 'showSignUp'
 	},
 
 	showSignUp: function() {
-		$('#create-form').hide();
-		App.userForm.render();
-		this.$el.append(App.userForm.el);
-		$('#submit-button').show()
+		var username = $('#create-username').val();
+		var password = $('#create-password').val();
+		var view = this;
+
+		$.post('/users', {
+			username: username,
+			password: password
+		}).done(function() {
+			App.userForm.render();
+			view.$el.append(App.userForm.el);
+			$('#submit-button').show();
+			$('#create-form').hide();
+		});
 	},
 
 	showCreateUser: function() {
 		$('#starter-login-button').hide();
 		$('#starter-signup-button').hide();
 		this.$el.append(createUserTemplate);
-	}	
-});
+	},
+
+});	

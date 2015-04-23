@@ -89,40 +89,18 @@ userRouter.get('/:id', function(req, res) {
 });
 
 userRouter.post('/', function(req, res) {
+
 	bcrypt.hash(req.body.password, 10, function(err, hash) {	
 		User
 			.create({
 				username: req.body.username,
 				password_digest: hash
+			})
+			.then(function(user) {
+				res.send(user);
 			});
 	});
 });	
-
-userRouter.post('/user-info', function(req, res) {
-	User
-		.create({
-			first_name: req.body.first_name,
-			last_name: req.body.last_name,
-			birthdate: req.body.birthdate,
-			sex: req.body.sex,
-			ethnicity: req.body.ethnicity,
-			street: req.body.street,
-			city: req.body.city,
-			state: req.body.state,
-			zipcode: req.body.zipcode,
-			phone: req.body.phone
-		})
-		.then(function(userInfo) {
-			res.send(userInfo)
-		}, function(err) {
-				var errors= err.errors.map(function(error) {
-					return error.path + ' - ' + error.message
-				});
-				res
-					.status(422)
-					.send(errors);
-		});
-});
 
 userRouter.delete('/:id', function(req, res) {
 	User

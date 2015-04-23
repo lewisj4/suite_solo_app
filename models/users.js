@@ -17,65 +17,9 @@ module.exports = function(sequelize, DataTypes) {
 				notEmpty: {msg: 'You must enter a password'}
 			}
 		},
-		first_name: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				notEmpty: {msg: 'First Name cannot be blank'}
-			}
-		},
-		last_name: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				notEmpty: {msg: 'Last Name cannot be blank'}
-			}
-		},
-		birthdate: {
-			type: DataTypes.DATE,
-			allowNull: false,
-			validate: {
-				isDate: {msg: 'Must enter a valid Date'},
-				notEmpty: {msg: 'Birthdate cannot be blank'}
-			}
-		},
-		sex: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				notEmpty: {msg: 'Must enter a gender'}
-			}
-		},
-		ethnicity: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				notEmpty: {msg: 'Must enter ethnicity'}
-			}
-		},
-		street: {
-			type: DataTypes.STRING,
-		},
-		city: {
-			type: DataTypes.STRING,
-		},
-		state: {
-			type: DataTypes.STRING,
-		},
-		zipcode: {
-			type: DataTypes.INTEGER,
-		},
-		phone: {
-			type: DataTypes.STRING
-		},
-		primary_contact_first_name: {
-			type: DataTypes.STRING
-		},
-		primary_contact_last_name: {
-			type: DataTypes.STRING
-		},
-		primary_contact_phone: {
-			type: DataTypes.STRING
+
+		user_info_id: {
+			type: DataTypes.INTEGER
 		}
 	}, {
 		underscored: true,
@@ -111,6 +55,9 @@ module.exports = function(sequelize, DataTypes) {
 					foreignKey: 'user_id',
 					onDelete: 'cascade',
 					hooks: true 
+				});
+				users.belongsTo(models.userinfos, {
+					foreignKey: 'user_info_id'
 				});
 			}
 		}

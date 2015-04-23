@@ -6,11 +6,33 @@ var Diagnosis      = models.diagnoses;
 var Medication     = models.medications;
 var Surgery        = models.surgeries;
 var User           = models.users;
+var UserInfo       = models.userinfos;
 
 var users = [
 	{
 		username: 'franktheTank12',
 		password_digest: 'poodles',
+		user_info_id: 1,
+	},
+  {
+		username: 'BettytheKid3',
+		password_digest: 'kittens',
+		user_info_id: 2,
+	},
+	{
+		username: 'JSmooth1',
+		password_digest: 'ballerlife',
+		user_info_id: 3,
+	},
+	{
+		username: 'RJ13',
+		password_digest: 'heresjohnny',
+		user_info_id: 4,
+	},
+]	
+
+var userinfos = [
+	{
 		first_name: 'Frank',
 		last_name: 'Wilson',
 		birthdate: 9-15-75,
@@ -24,10 +46,9 @@ var users = [
 		primary_contact_first_name: 'Jane',
 		primary_contact_last_name: 'Wilson',
 		primary_contact_phone: '212-351-7666',
+		user_id: 1,
 	},
-  {
-		username: 'BettytheKid3',
-		password_digest: 'kittens',
+	{
 		first_name: 'Betty',
 		last_name: 'Brown',
 		birthdate: 3-30-88,
@@ -41,10 +62,9 @@ var users = [
 		primary_contact_first_name: 'Tom',
 		primary_contact_last_name: 'Brown',
 		primary_contact_phone: '919-244-8922',
+		user_id: 2,
 	},
 	{
-		username: 'JSmooth1',
-		password_digest: 'ballerlife',
 		first_name: 'Joey',
 		last_name: 'Smith',
 		birthdate: 5-2-82,
@@ -58,10 +78,9 @@ var users = [
 		primary_contact_first_name: 'Nancy',
 		primary_contact_last_name: 'Nolan',
 		primary_contact_phone: '630-782-9863',
+		user_id: 3,
 	},
 	{
-		username: 'RJ13',
-		password_digest: 'heresjohnny',
 		first_name: 'Rob',
 		last_name: 'Johnson',
 		birthdate: 8-24-91,
@@ -75,8 +94,9 @@ var users = [
 		primary_contact_first_name: 'Sue',
 		primary_contact_last_name: 'Johnson',
 		primary_contact_phone: '415-212-8550',
+		user_id: 4,
 	},
-]	
+]
 		
 var	surgeries = [
 	{
@@ -204,16 +224,20 @@ var immunizations = [
 var seedDatabase = function() {
 	User.destroy({ truncate: true}).then(function() {
 		User.bulkCreate(users).then(function() {
-			Surgery.destroy({ truncate: true}).then(function() {
-				Surgery.bulkCreate(surgeries).then(function() {
-					Medication.destroy({ truncate: true}).then(function() {
-						Medication.bulkCreate(medications).then(function() {
-							Diagnosis.destroy({ truncate: true}).then(function() {
-								Diagnosis.bulkCreate(diagnoses).then(function() {
-									Allergy.destroy({ truncate: true}).then(function() {
-										Allergy.bulkCreate(allergies).then(function() {
-											Immunization.destroy({truncate: true}).then(function() {
-												Immunization.bulkCreate(immunizations);
+			UserInfo.destroy({ truncate: true}).then(function() {
+				UserInfo.bulkCreate(userinfos).then(function() {
+					Surgery.destroy({ truncate: true}).then(function() {
+						Surgery.bulkCreate(surgeries).then(function() {
+							Medication.destroy({ truncate: true}).then(function() {
+								Medication.bulkCreate(medications).then(function() {
+									Diagnosis.destroy({ truncate: true}).then(function() {
+										Diagnosis.bulkCreate(diagnoses).then(function() {
+											Allergy.destroy({ truncate: true}).then(function() {
+												Allergy.bulkCreate(allergies).then(function() {
+													Immunization.destroy({truncate: true}).then(function() {
+														Immunization.bulkCreate(immunizations);
+													});
+												});
 											});
 										});
 									});

@@ -11,6 +11,7 @@ var diagnosisRoutes      =require('./routers/diagnosis_routes.js');
 var medicationRoutes     =require('./routers/medication_routes.js');
 var surgeryRoutes        =require('./routers/surgery_routes.js');
 var userRoutes           =require('./routers/user_routes.js');
+var userInfoRoutes       =require('./routers/userinfo_routes.js');
 var immunizationRoutes   =require('./routers/immunization_routes.js');   
 
 var app = express(); 
@@ -33,6 +34,7 @@ app.use('/immunizations', immunizationRoutes);
 app.use('/diagnoses', diagnosisRoutes);
 app.use('/medications', medicationRoutes);
 app.use('/surgeries', surgeryRoutes);
+app.use('/userinfos', userInfoRoutes);
 app.use('/users', userRoutes);
 
 

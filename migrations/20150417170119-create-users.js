@@ -15,44 +15,8 @@ module.exports = {
       password_digest: {
         type: DataTypes.STRING
       },
-      first_name: {
-        type: DataTypes.STRING
-      },
-      last_name: {
-        type: DataTypes.STRING
-      },
-      birthdate: {
-        type: DataTypes.DATE
-      },
-      sex: {
-        type: DataTypes.STRING
-      },
-      ethnicity: {
-        type: DataTypes.STRING
-      },
-      street: {
-        type: DataTypes.STRING
-      },
-      city: {
-        type: DataTypes.STRING
-      },
-      state: {
-        type: DataTypes.STRING
-      },
-      zipcode: {
+      user_info_id: {
         type: DataTypes.INTEGER
-      },
-      phone: {
-        type: DataTypes.STRING
-      },
-      primary_contact_first_name: {
-        type: DataTypes.STRING
-      },
-      primary_contact_last_name: {
-        type: DataTypes.STRING
-      },
-      primary_contact_phone: {
-        type: DataTypes.STRING
       },
       created_at: {
         allowNull: false,
