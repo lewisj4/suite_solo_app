@@ -1,3 +1,11 @@
+body {
+	background-image: url('http://lsnmu.com/wp-content/uploads/2014/05/Doctors-health-Powerpoint-Background-HD-98790.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+
 #login-username,
 #login-password,
 #login-button {
@@ -21,7 +29,9 @@
 	height: 25px;
 }
 
-#submit-button {
+#submit-button,
+#submit-allergy-button,
+#submit-diagnosis-button {
 	position: fixed;
 	bottom: 25px;
 	left: 10px;

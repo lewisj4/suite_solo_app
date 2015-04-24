@@ -27,7 +27,9 @@ App.Forms.UserInfoForm = Backbone.Form.extend({
 		zipcode: 'Text',
 
 		phone: 'Text',
-	}
+	},
+
+	
 });
 // Where does this go?? IN APP.JS!!
 // var form = new UserForm({

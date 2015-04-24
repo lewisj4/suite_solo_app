@@ -14,14 +14,18 @@ App.Views.MainView = Backbone.View.extend({
 
 	events: {
 		'click #starter-signup-button' : 'showCreateUser',
-		'click #create-button' : 'showSignUp',
+		'click #create-button' : 'createUser',
 		'click #starter-login-button' :  'executeLogin',
-		'click #submit-button' : 'generateForms',
-		'click #allergy-button' : 'showUserRecord'
+		'click #submit-button' : 'saveUserInfo',
+		'click #allergy-button' : 'showAllergyForm',
+		'click #diagnosis-button' : 'showDiagnosisForm',
+		'click #immunization-button' : 'showImmunizationForm',
+		'click #medication-button' : 'showMedicationForm',
+		'click #surgery-button' : 'showSurgeryForm'
 	},
 
 
-	showSignUp: function() {
+	createUser: function(done) {
 		var username = $('#create-username').val();
 		var password = $('#create-password').val();
 		var view = this;
@@ -37,35 +41,16 @@ App.Views.MainView = Backbone.View.extend({
 		});
 	},
 
-	showCreateUser: function() {
-		$('#starter-login-button').hide();
-		$('#starter-signup-button').hide();
-		this.$el.append(createUserTemplate);
-	},
-
-	showUserRecord: function() {
-		$('#homepage-view').hide();
-		$('#user-record-view').show();
-	},
-
-	showAllergyForm: function() {
-		App.allergyForm.render();
-		this.$el.append(App.allergyForm.el);
-		$('#submit-allergy-button').show();
-	}
-
-	// generateForms: function() {
-
-	// 	App.userInfoForm.commit();
-	// 	var firstname = $('#c1_first_name').val();
-	// 	var lastname  = $('#c1_last_name').val();
-	// 	var birthdate = $('#c1_birthdate').val();
-	// 	var sex       = $('#c1_sex').val();
-	// 	var ethnicity = $('#c1_ethnicity').val();
-	// 	var street    = $('#c1_street').val();
-	// 	var state     = $('#c1_state').val();
-	// 	var zipcode   = $('#c1_zipcode').val();
-	// 	var phone			= $('#c1_phone').val(); 
+	// saveUserInfo: function() {
+	// 	var firstname = input[name*='first_name'].val();
+	// 	var lastname  = input[name*='last_name'].val();
+	// 	var birthdate = input[name*='birthdate'].val();
+	// 	var sex       = input[name*='sex'].val();
+	// 	var ethnicity = input[name*='ethnicity'].val();
+	// 	var street    = input[name*='street'].val();
+	// 	var state     = input[name*='state'].val();
+	// 	var zipcode   = input[name*='zipcode'].val();
+	// 	var phone			= input[name*='phone'].val(); 
 	// 	$.post('/userinfos', function() {
 	// 		firstname: firstname,
 	// 		lastname: lastname, 
@@ -77,8 +62,55 @@ App.Views.MainView = Backbone.View.extend({
  //      zipcode: zipcode,  
  //      phone: phone		
 	// 	}).done(function() {
+	// 		alert('Form Submitted')
 	// 	});
 	// },
+	showCreateUser: function() {
+		$('#starter-login-button').hide();
+		$('#starter-signup-button').hide();
+		this.$el.append(createUserTemplate);
+	},
+
+	// showUserRecord: function() {
+	// 	$('#homepage-view').hide();
+
+	// 	$.ajax({
+	// 		url: '/userinfos/:id',
+	// 		method: 'GET'
+	// 	}).done(function() {
+	// 		App.
+	// 	})
+	// },
+
+	showAllergyForm: function() {
+		App.allergyForm.render();
+		this.$el.append(App.allergyForm.el);
+		$('#submit-allergy-button').show();
+	},
+
+	showDiagnosisForm: function() {
+		App.diagnosisForm.render();
+		this.$el.append(App.diagnosisForm.el);
+		$('#submit-diagnosis-button').show();
+	},
+
+	showImmunizationForm: function() {
+		App.immunizationForm.render();
+		this.$el.append(App.immunizationForm.el);
+		$('#submit-immunization-button').show();
+	},
+
+	showMedicationForm: function() {
+		App.medicationForm.render();
+		this.$el.append(App.medicationForm.el);
+		$('#submit-medication-button').show();
+	},
+
+	showSurgeryForm: function() {
+		App.surgeryForm.render();
+		this.$el.append(App.surgeryForm.el);
+	}
+
 
 
 

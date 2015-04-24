@@ -26,6 +26,9 @@
 	<script src='js/forms/userinfoform.js'></script>
 	<script src='js/forms/allergyform.js'></script>
 	<script src='js/forms/diagnosisform.js'></script>
+	<script src='js/forms/immunizationform.js'></script>
+	<script src='js/forms/medicationform.js'></script>
+	<script src='js/forms/surgeryform.js'></script>
 
 	<!--============ Collections ============-->
 	<script src='js/collections/allergies.js'></script>
@@ -39,21 +42,20 @@
 	<script src='js/views/mainview.js'></script>
 	<script src='js/views/homepageview.js'></script>
 	<script src='js/views/userrecordview.js'></script>
-	<script src='js/views/signupview.js'></script>
 
 </head>
 <body>
 	<div id="main-view">
 		<div id='logo-div'><h1 id="logo">iMedRecords</h1></div>
-		<div id='submit-form'><button id="submit-button">Submit</button>
+			<div id='submit-form'><button id="submit-button">Submit</button>
+			<div id='allergy-form'><button id="submit-allergy-button">Submit Allergies</button>
+				<div id='diagnosis-form'><button id="submit-diagnosis-button">Submit Diagnoses</button>
+		</div>
 		</div>
 		<div id="homepage-view">
 		</div>
 
 		<div id="medical-record-view">
-			<div id='allergy-form'><button id="submit-allergy-button">Submit Allergies</button>
-				<div id='diagnosis-form'><button id="submit-diagnosis-button">Submit Diagnoses</button>
-		</div>
 
 		<div id="user-record-view">
 		</div>
@@ -90,23 +92,26 @@
 			<button id="logout-button">Logout</button>
 			<button id="allergy-button"> Allergies</button>
 			<button id="diagnosis-button">Medical Conditions</button>
+			<button id="immunization-button">Immunizations</button>
+			<button id="medication-button">Medications</button>
+			<button id="surgery-button">Surgeries</button>
 		</p>	
 	</div>
 	</template>
-	
-	<script id="userinfo-form-template" type="text/html">
-		<form>
-			<h1> New User </h1>
+	<!--
+	<script id="userinfo-template" type="text/html">
+	// 	<form>
+	// 		<h1> New User </h1>
 
-			<h3> Personal Information </h3>
-			<div data-fields="First Name, Last Name, Birthdate, Sex, Ethnicity, Street, City, State, Zipcode, Phone">
-			</div>
+	// 		<h3> Personal Information </h3>
+	// 		<div data-fields="First Name, Last Name, Birthdate, Sex, Ethnicity, Street, City, State, Zipcode, Phone">
+	// 		</div>
 
-			<h3> Emergency Contact </h3>
-			<div data-fields= "First Name, Last Name, Phone">
-			</div>
-		</form>			
-	</script>	
+	// 		<h3> Emergency Contact </h3>
+	// 		<div data-fields= "First Name, Last Name, Phone">
+	// 		</div>
+	// 	</form>			
+	// </script>	
 
 
 
@@ -149,6 +154,7 @@
 			</div>
 		</form>
 	</script>
+		-->
 
 
 

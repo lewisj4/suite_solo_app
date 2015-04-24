@@ -22,7 +22,9 @@ $(function() {
 	App.userInfoForm = new App.Forms.UserInfoForm({ model: new App.Models.UserInfo()});
 	App.allergyForm = new App.Forms.AllergyForm({ model: new App.Models.Allergy()});
 	App.diagnosisForm = new App.Forms.DiagnosisForm({ model: new App.Models.Diagnosis()});
+	App.immunizationForm = new App.Forms.ImmunizationForm({ model: new App.Models.Immunization()});
+	App.medicationForm = new App.Forms.MedicationForm({ model: new App.Models.Medication()});
+	App.surgeryForm = new App.Forms.SurgeryForm({model: new App.Models.Surgery()});
 	//=================== Views ================
 	App.mainView = new App.Views.MainView();
-	App.userRecordView = new App.Views.UserRecordView();
 });

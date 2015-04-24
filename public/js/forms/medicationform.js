@@ -5,7 +5,8 @@ App.Forms.MedicationForm = Backbone.Form.extend({
 	},
 
 	schema: {
-		medication: { type: 'List', itemType: 'Text'}
+		medication: { type: 'Checkboxes', options: ['Lipitor', 'Nexium', 'Advair', 'Singulair', 'Epogen',
+																								'Adderall', 'Viagra','Nasonex', 'Prezista']},
 
 		ndc_code_id: 'Text',
 	}

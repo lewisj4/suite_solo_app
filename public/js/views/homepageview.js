@@ -18,7 +18,7 @@ App.Views.HomepageView = Backbone.View.extend({
 
 	render: function() {
 		this.$el.append(startUpTemplate);
-	},
+	},   
 
 	executeSignIn: function() {
 		$('#starter-login-button').hide();
@@ -50,14 +50,12 @@ App.Views.HomepageView = Backbone.View.extend({
 
 	executeLogout: function() {
 		var view = this;
-
 		$.ajax({
 			url: '/users/sessions',
 			method: 'DELETE',
-			dataType: 'json'
 		}).done(function() {
-			view.loggedInTemplate.hide();
-			view.startUpTemplate.show();
+			$('#loggedin-form').hide();
+			$('#starter-login-button').show();
 		});
 	}
 });

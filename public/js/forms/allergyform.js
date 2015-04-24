@@ -6,7 +6,7 @@ App.Forms.AllergyForm = Backbone.Form.extend({
 	},
 
 	schema: {
-		name: { type: 'Select', options: ['Milk', 'Peanut', 'Fish', 'Soy', 'Wheat', 'Egg',
+		name: { type: 'Checkboxes', options: ['Milk', 'Peanut', 'Fish', 'Soy', 'Wheat', 'Egg',
 																			'Penicillin', 'Pollen', 'Cat', 'Dog', 'Mold',
 																			'Perfume', 'Latex', 'Dust Mites']}
 	}
