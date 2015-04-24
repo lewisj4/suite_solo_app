@@ -20,11 +20,12 @@
 	<script src='js/models/medication.js'></script>
 	<script src='js/models/surgery.js'></script>
 	<script src='js/models/user.js'></script>
+	<script src='js/models/userinfo.js'></script>
 
 	<!--=============== Forms ============-->
-	<script src='js/forms/userform.js'></script>
-
-
+	<script src='js/forms/userinfoform.js'></script>
+	<script src='js/forms/allergyform.js'></script>
+	<script src='js/forms/diagnosisform.js'></script>
 
 	<!--============ Collections ============-->
 	<script src='js/collections/allergies.js'></script>
@@ -50,9 +51,11 @@
 		</div>
 
 		<div id="medical-record-view">
+			<div id='allergy-form'><button id="submit-allergy-button">Submit Allergies</button>
+				<div id='diagnosis-form'><button id="submit-diagnosis-button">Submit Diagnoses</button>
 		</div>
 
-		<div id="signup-view">
+		<div id="user-record-view">
 		</div>
 		<div id="footer">
 		</div>	
@@ -83,23 +86,17 @@
 	<template id="loggedin-template">
 		<div id='loggedin-form'>
 		<p>
-			Hello, {{username}}
+			Here are your options:
 			<button id="logout-button">Logout</button>
+			<button id="allergy-button"> Allergies</button>
+			<button id="diagnosis-button">Medical Conditions</button>
 		</p>	
 	</div>
 	</template>
 	
-	<script id="user-form-template" type="text/html">
+	<script id="userinfo-form-template" type="text/html">
 		<form>
 			<h1> New User </h1>
-
-			<h2> Account Information </h2>
-			<div data-fields="username">
-			</div>
-
-			<h2> Password </h2>
-			<div data-editors="password_digest">
-			</div>
 
 			<h3> Personal Information </h3>
 			<div data-fields="First Name, Last Name, Birthdate, Sex, Ethnicity, Street, City, State, Zipcode, Phone">
@@ -111,13 +108,47 @@
 		</form>			
 	</script>	
 
-		<script id="allergy-form-template" type="text/html">
-			<form>
-				<h1> Allergy Information </h2>
-				<div data-fields="name">
-				</div>
-			</form>
-		</script>	
+
+
+	<script id="allergy-form-template" type="text/html">
+		<form>
+			<h1> Allergy Information </h1>
+			<div data-fields="Name">
+			</div>
+		</form>
+	</script>	
+
+	<script id="diagnosis-form-template" type="text/html">
+		<form>
+			<h1> Diagnosis Information </h1>
+			<div data-fields="Name, ICD Code">
+			</div>
+		</form>
+	</script>
+
+	<script id="immunization-form-template" type="text/html">
+		<form>
+			<h1> Immunization Information </h1>
+			<div data-fields="Vaccine Name">
+			</div>
+		</form>
+	</script>
+
+	<script id="medication-form-template" type="text/html">
+		<form>
+			<h1> Medication Information </h1>
+			<div data-fields="Medication, NDC Code">
+			</div>
+		</form>
+	</script>
+
+	<script id="surgery-form-template" type="text/html">
+		<form>
+			<h1> Surgery Information </h1>
+			<div data-fields="Name">
+			</div>
+		</form>
+	</script>
 
 
 

@@ -26,11 +26,10 @@ App.Views.HomepageView = Backbone.View.extend({
 		this.$el.append(loginTemplate);
 	},
 
-
-
 	executeLogin: function() {
 		var username = $('#login-username').val();
 		var password = $('#login-password').val();
+		var view = this;
 
 		$.ajax({
 			url: '/users/sessions',
@@ -41,7 +40,7 @@ App.Views.HomepageView = Backbone.View.extend({
 			}	
 		}).done(function() {
 			$('#login-form').hide();
-			this.$el.append(loggedinTemplate);
+			view.$el.append(loggedinTemplate);
 		})
 		.fail(function(response) {
 			var err = response.responseJSON;
@@ -49,28 +48,16 @@ App.Views.HomepageView = Backbone.View.extend({
 		});
 	},	
 
-	// 	$.post('/users/sessions', {
-	// 		username: username,
-	// 		password: password
-	// 	})
-	// 	.done(function() {		
-	// 	$('#login-form').hide();
-	// 	this.$el.append(loggedinTemplate);
-	// 	})
-	// 	.fail(function(response) {
-	// 		var err = response.responseJSON;
-	// 		alert(err.err + ' - ' + err.msg);
-	// 	});
-	// },
-
 	executeLogout: function() {
+		var view = this;
 
 		$.ajax({
 			url: '/users/sessions',
 			method: 'DELETE',
 			dataType: 'json'
-		}).done(function() {		
-		$('#loggedin-template').hide();
-		})
+		}).done(function() {
+			view.loggedInTemplate.hide();
+			view.startUpTemplate.show();
+		});
 	}
 });

@@ -1,7 +1,7 @@
-App.Forms.UserForm = Backbone.Form.extend({
+App.Forms.UserInfoForm = Backbone.Form.extend({
 	initalize: function() {
-		console.log('User Form has been created');
-		userFormTemplate = Handlebars.compile($('#user-form-template').html());
+		console.log('User Info Form has been created');
+		userFormTemplate = Handlebars.compile($('#userinfo-form-template').html());
 	},
 
 	schema: {

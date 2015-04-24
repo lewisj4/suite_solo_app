@@ -19,10 +19,10 @@ $(function() {
 	App.surgeries = new App.Collections.Surgeries();
 
 	//================= Forms ==================
-	App.userForm = new App.Forms.UserForm({ model: new App.Models.User()});
-	//App.allergyForm = new App.Forms.AllergyForm({ model: new App.Models.Allergy()});
-
+	App.userInfoForm = new App.Forms.UserInfoForm({ model: new App.Models.UserInfo()});
+	App.allergyForm = new App.Forms.AllergyForm({ model: new App.Models.Allergy()});
+	App.diagnosisForm = new App.Forms.DiagnosisForm({ model: new App.Models.Diagnosis()});
 	//=================== Views ================
 	App.mainView = new App.Views.MainView();
-	//App.signupView = new App.Views.SignupView();
+	App.userRecordView = new App.Views.UserRecordView();
 });
